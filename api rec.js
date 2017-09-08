@@ -14,11 +14,14 @@ function Username(identity) {
 Username.prototype.getRepos = function() {
   $.get('https://api.github.com/users/daneden?access_token=' + apiKey).then(function(response) {
     console.log(response);
-  }).fail(function(error) {
-    console.log(error.JSON.message);
-  });
+    $(".d").text("")
+  $(".userinfo").append("<li>" + response.login + "</li>")
+  $(".userInfo2").append("<li>" + response.html.url + "</li>")
+  $(".userInfo3").append("<li>" + response.followers + "</li>")
+}).fail(function(error) {
+  console.log(error.JSON.message);
+});
 };
-
 //ui logic
 $(document).ready(function() {
   $("#github").submit(function(event) {
