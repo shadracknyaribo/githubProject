@@ -1,0 +1,25 @@
+{
+  "name": "githubproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api rec.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shadracknyaribo/githubProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shadracknyaribo/githubProject/issues"
+  },
+  "homepage": "https://github.com/shadracknyaribo/githubProject#readme",
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.4",
+    "jshint": "^2.9.5"
+  }
+}
