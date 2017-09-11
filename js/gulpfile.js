@@ -24,10 +24,11 @@ var lib = require('bower-files')({
 gulp.task('serve', function() {
   browserSync.init({
     server: {
-      baseDir: "./"
+      baseDir: "./",
       index: "index.html"
     }
-  })
+  });
+});
   gulp.watch(['js/*.js'], ['jsBuild'])
   gulp.watch(['bower.json'], ['bowerBuild'])
   gulp.watch(['*.html'], ['htmlBuild'])
@@ -39,7 +40,7 @@ gulp.task('concatInterface', function() {
     .pipe(concat('allConcat.js'))
     .pipe(gulp.dest('./tmp'));
 })
-//this will browserify source code into code the broswer can read and also make build folder
+//this will browserify source code into code the browser can read and also make build folder
 gulp.task("jsBrowserify", ['concatInterface'], function() {
   return browserify({
       entries: ['./tmp/api rec.js']
