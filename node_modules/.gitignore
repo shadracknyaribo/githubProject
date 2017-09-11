@@ -1,0 +1,8 @@
+.env
+node_modules/
+bower components
+app/*.js
+app/*js.map
+.DS_Store
+build/
+typings/

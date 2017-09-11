@@ -1,0 +1,17 @@
+{
+  "name": "shadracknyaribo",
+  "description": "",
+  "main": "api rec.js",
+  "authors": [
+    "shadracknyaribo <shadracknyaribo1@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/shadracknyaribo/githubProject",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
