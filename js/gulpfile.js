@@ -42,10 +42,10 @@ gulp.task('concatInterface', function() {
 //this will browserify source code into code the broswer can read and also make build folder
 gulp.task("jsBrowserify", ['concatInterface'], function() {
   return browserify({
-      entries: ['./js/api rec.js']
+      entries: ['./tmp/api rec.js']
     })
     .bundle()
-    .pipe(source('js'))
+    .pipe(source('app.js'))
     .pipe(gulp.dest('./build/js'));
 });
 
