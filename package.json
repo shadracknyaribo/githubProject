@@ -27,6 +27,7 @@
     "jshint": "^2.9.5"
   },
   "dependencies": {
+    "bootstrap": "file:bootstrap",
     "build": "^0.1.4",
     "server": "^1.0.0-beta.2"
   }
