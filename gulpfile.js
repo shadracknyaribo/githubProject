@@ -20,18 +20,7 @@ var lib = require('bower-files')({
   }
 });
 
-//this will set up a local host
-gulp.task('serve', function() {
-  browserSync.init({
-    server: {
-      baseDir: "./"
-      index: "index.html"
-    }
-  })
-  gulp.watch(['js/*.js'], ['jsBuild'])
-  gulp.watch(['bower.json'], ['bowerBuild'])
-  gulp.watch(['*.html'], ['htmlBuild'])
-})
+
 
 //this will concat the interface file into concat js file to  tmp folder
 gulp.task('concatInterface', function() {
@@ -40,12 +29,10 @@ gulp.task('concatInterface', function() {
     .pipe(gulp.dest('./tmp'));
 })
 //this will browserify source code into code the broswer can read and also make build folder
-gulp.task("jsBrowserify", ['concatInterface'], function() {
-  return browserify({
-      entries: ['./js/api rec.js']
-    })
+gulp.task('jsBrowserify', ['concatInterface'], function() {
+  return browserify({ entries: ['./tmp/allConcat.js'] })
     .bundle()
-    .pipe(source('js'))
+    .pipe(source('app.js'))
     .pipe(gulp.dest('./build/js'));
 });
 
@@ -88,3 +75,30 @@ gulp.task('build', ['clean'], function() {
     gulp.start('jsBrowserify')
   }
 })
+
+//this will set up a local host
+gulp.task('serve', function() {
+  browserSync.init({
+    server: {
+      baseDir: "./",
+      index: "index.html"
+    }
+  });
+   gulp.watch(['js/*.js'], ['jsBuild']);
+   gulp.watch(['bower.json'], ['bowerBuild']);
+   gulp.watch(['*.html'], ['htmlBuild']);
+   gulp.watch(["scss/*.scss"], ['bowerBuild']);
+
+});
+
+gulp.task('jsBuild', ['jsBrowserify', 'jshint'], function(){
+  browserSync.reload();
+});
+
+gulp.task('bowerBuild', ['bower'], function(){
+  browserSync.reload();
+});
+
+gulp.task('htmlBuild', function(){
+  browserSync.reload();
+});
