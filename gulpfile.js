@@ -24,7 +24,9 @@ var lib = require('bower-files')({
 
 
 //this will concat the interface file into concat js file to  tmp folder
-gulp.task('concatInterface', function() {
+gu
+
+lp.task('concatInterface', function() {
   return gulp.src(['./js/*-interface.js'])
     .pipe(concat('allConcat.js'))
     .pipe(gulp.dest('./tmp'));
