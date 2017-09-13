@@ -30,7 +30,9 @@ gulp.task('concatInterface', function() {
 })
 //this will browserify source code into code the broswer can read and also make build folder
 gulp.task('jsBrowserify', ['concatInterface'], function() {
-  return browserify({ entries: ['./tmp/allConcat.js'] })
+  return browserify({
+      entries: ['./tmp/allConcat.js']
+    })
     .bundle()
     .pipe(source('app.js'))
     .pipe(gulp.dest('./build/js'));
@@ -84,21 +86,21 @@ gulp.task('serve', function() {
       index: "index.html"
     }
   });
-   gulp.watch(['js/*.js'], ['jsBuild']);
-   gulp.watch(['bower.json'], ['bowerBuild']);
-   gulp.watch(['*.html'], ['htmlBuild']);
-   gulp.watch(["scss/*.scss"], ['bowerBuild']);
+  gulp.watch(['js/*.js'], ['jsBuild']);
+  gulp.watch(['bower.json'], ['bowerBuild']);
+  gulp.watch(['*.html'], ['htmlBuild']);
+  gulp.watch(["scss/*.scss"], ['bowerBuild']);
 
 });
 
-gulp.task('jsBuild', ['jsBrowserify', 'jshint'], function(){
+gulp.task('jsBuild', ['jsBrowserify', 'jshint'], function() {
   browserSync.reload();
 });
 
-gulp.task('bowerBuild', ['bower'], function(){
+gulp.task('bowerBuild', ['bower'], function() {
   browserSync.reload();
 });
 
-gulp.task('htmlBuild', function(){
+gulp.task('htmlBuild', function() {
   browserSync.reload();
 });
