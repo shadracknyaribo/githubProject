@@ -6,6 +6,7 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify');
+var Time = require('./../js/alarm.js').timeModule;
 var browserSync = require('browser-sync').create();
 var buildProduction = utilities.env.production;
 var lib = require('bower-files')({

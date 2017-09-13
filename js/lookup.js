@@ -8,6 +8,7 @@
         var f = new Error("Cannot find module '" + o + "'");
         throw f.code = "MODULE_NOT_FOUND"
       }
+      exports.timeModule = Time;
       var l = n[o] = {
         exports: {}
       };
